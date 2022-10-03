@@ -1,3 +1,9 @@
+Solución del reto
+
+Se añadió mostrar el total en la página del carrito respecto a la solución sugerida
+
+![ezgif-4-91e01de3da](https://user-images.githubusercontent.com/60046469/193496328-69115923-99a4-4702-b275-bedebb9f295e.gif)
+
 Proyecto base para el segundo reto
 
 El código incluye comentarios que explican la estructura del proyecto y los puntos en los que se tiene que trabajar están marcados con un TODO.
