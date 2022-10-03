@@ -6,6 +6,7 @@ import '../../domain/product.dart';
 class ShoppingController extends GetxController {
   // lista de productos
   var entries = <Product>[].obs;
+
   // el valor total de la compra
   var total = 0.obs;
 
@@ -18,26 +19,39 @@ class ShoppingController extends GetxController {
   }
 
   void calcularTotal() {
-    int newTotal = 0;
-    // TODO
+    // DONE
     // calcular el valor total de los elementos en el carro de compras
-    total.value = newTotal;
+    total.value = entries.fold(
+        0, (value, element) => value + element.price * element.quantity);
   }
 
   agregarProducto(id) {
     logInfo('agregarProducto $id');
-    // TODO
+    // DONE
     // Encontrar el elemento usando el id, revisar el método firstWhere de la lista
+    var product = entries.firstWhere((element) => element.id == id);
     // después obtener el index de ese elemento, revisar el método indexOf de la lista
+    var index = entries.indexOf(product);
     // después hacer el incremento en la cantidad
+    product.quantity += 1;
     // finalmente actualizar entries usando el indice y el elemento actualizado
+    entries[index] = product;
+
     calcularTotal();
   }
 
   quitarProducto(id) {
     logInfo('quitarProducto $id');
-    // TODO
+    // DONE
     // similar a agregarProducto
+    var product = entries.firstWhere((element) => element.id == id);
+    var index = entries.indexOf(product);
+    if (product.quantity > 1) {
+      product.quantity -= 1;
+    } else {
+      product.quantity = 0;
+    }
+    entries[index] = product;
     // validar cuando la cantidad es igual a cero
     calcularTotal();
   }

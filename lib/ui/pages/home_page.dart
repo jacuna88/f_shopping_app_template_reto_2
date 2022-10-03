@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: GestureDetector(
-            onTap: () => Get.to(() => ProductList(),
+            onTap: () => Get.to(() => const ProductList(),
                 transition: Transition.circularReveal,
                 duration: const Duration(seconds: 1)),
             child: const Icon(
